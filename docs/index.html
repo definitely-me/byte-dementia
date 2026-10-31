@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>byteDementia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-content">
+<header>
+    <div class="bar">
+        <div class="logo">
+            <img class="glitchGif" src="./assets/glitch.gif">
+    <pre class="ascii-logo">
+ _            _         _____                             _   _
+| |          | |       |  __ \                           | | (_)
+| |__  _   _ | |_ ___  | |  | | ___ _ __ ___   ___ _ __  | |_ _  __ _
+| '_ \| | | || __/ _ \ | |  | |/ _ \ '_ ` _ \ / _ \ '_ \ | __| |/ _` |
+| |_) | |_| || ||  __/ | |__| |  __/ | | | | |  __/ | | || |_| | (_| |
+|_.__/ \__, | \__\___| |_____/ \___|_| |_| |_|\___|_| |_| \__|_|\__,_|
+        __/ |
+       |___/
+        </pre>
+        </div>
+    <a class="download-btn" href="#download">Download v.0.5</a>
+    </div>
+</header>
+
+<main>
+    <img class="terminal" src="./assets/img.png">
+    <section class="about">
+        <h1>ABOUT</h1>
+        <p>
+            byteDementia is a lightweight CLI application
+            developed in C, designed to provide fast file encryption
+            directly from your terminal. It offers a straightforward approach to
+            securing personal data by utilizing a custom Add-Rotate-Xor
+            cryptographic method. The main concept behind the program is
+            to allow users to easily "corrupt" their sensitive files to make
+            them completely unreadable, and later "revive" them back to their
+            original state. This transformation process is driven by a combination
+            of a user-provided ASCII text password and an automatically generated
+            salt seed, which work together to create a unique 1024-byte key for
+            every single encryption session. Because it operates entirely in-memory
+            and requires minimal setup, byteDementia serves as a highly portable
+            and efficient tool. It is perfect for anyone who needs to quickly
+            lock away important or inappropriate information without depending on heavy or complex
+            software.
+        </p>
+        <p class="warning">
+            Feds gonna find your secrets no matter what. I warned you.
+        </p>
+    </section>
+
+    <section class="features">
+        <h1>KEY FEATURES</h1>
+        <div class="features-body">
+            <div class="feature-row">
+                <div class="feature-name">Custom ARX Engine</div>
+                <div class="feature-desc">Implements a fast byte-level cipher utilizing Add and XOR operations to securely obscure your data.</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-name">Advanced Key Derivation</div>
+                <div class="feature-desc">Performs 500,000 iterations to expand your simple ASCII password and a unique salt into a robust 1024-byte encryption key.</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-name">Dynamic Salt Generation</div>
+                <div class="feature-desc">Automatically creates a unique, random 8-byte salt for every session, meaning the same file encrypted twice will result in completely different outputs. Pure random salt thanks to <a class="link" href="https://github.com/dsprenkels/randombytes"> this repo.</a></div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-name">Built-in Data Integrity</div>
+                <div class="feature-desc">Calculates a reliable checksum and original file size during encryption to verify file integrity and warn you about incorrect passwords or data loss upon decryption.</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-name">Custom File Headers</div>
+                <div class="feature-desc">Embeds a special metadata header into the encrypted files to safely store the salt, original file size, version compatibility, and checksum data.</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-name">In-Memory Processing</div>
+                <div class="feature-desc">Loads and encrypts files exclusively within your system's RAM for rapid processing speeds, leaving no unencrypted temporary files on your drive.</div>
+            </div>
+        </div>
+    </section>
+    <h1 class="why-title">WHY DEMENTIA?</h1>
+    <p class="why-text">
+        I had no idea what my first C project should be. All beginner projects felt boring, so I just put the idea on hold for a while.
+        One day youtube recommended me a video called <a class="link" href="https://www.youtube.com/watch?v=jz6DKomKnHU&t=714s"> Everywhere At The End Of Geometry Dash</a> (EATEOT reference, game OST slowly becoming unrecognizable and distorted). It made me realize: every photo, video, or piece of data on your drive only exists because its bytes are arranged in a very specific order. It is a delicate balance.
+        I decided I wanted to break that balance by writing an encryptor. That is how the idea was born, that is why it is called byteDementia.
+
+    </p>
+    <h1 class="BUILDING">
+        BUILDING
+    </h1>
+    <p class="build">
+        gcc main.c encrypt.c io.c randombytes.c -o byteDementia -O3 -march=native -flto
+    </p>
+    <div class="compatibility">
+        <p>Compiled and tested on Arch Linux and macOS Sequoia.</p>
+    </div>
+    <div class="download-gif-box">
+    <img class="download-gif" src="./assets/ukazatel2.gif">
+    </div>
+    <div class="button-download">
+        <a id="download" class="button" href="./assets/release.zip" download="release.zip">
+            byteDementia.zip
+        </a>
+    </div>
+
+</main>
+<footer class="footer">
+    <div class="footer-left">
+        <h4 class="footer-title">CONTACT</h4>
+        <div class="contact-links">
+            <a href="about:blank" target="_blank" class="footer-link">Telegram: null</a>
+            <a class="footer-link">Email: starkovecstarkov@gmail.com</a>
+        </div>
+    </div>
+    <div class="footer-right">
+        <h4 class="footer-title"></h4>
+        <pre class="ascii-art">
+:::cccccclllllooooooooooooooooooooooooooll;,;:c::::c::::clloooooooooooooollllllc;;;;;;;;::;;,,,',;:cccccccccccccc:::::::;;;;;;;;,,,,,,,,'''''''.......
+ccccccccclllllllooooooooooooooooooddooooooolcc::::::c::ccclooooooooooooolllllc:;;;;;;;;;;,,,'''''',,,;::ccccccccc::::::;;;;;;;;;,,,,,,,,'''''''.......
+cccccccclllllllooooooooooooooooooooooddoodooooolc:;,;;;:cccclooooooooollllllc:;::::;:::::::::;,,,,,,,',,;:ccccccc::::::;;;;;;;;;;,,,,,,,,''''.........
+ccccllllllllllllooooooooooooooooooooollccodddooooolcc:;;;::cccloooooollllc:;,,;::cclllllllccccc::;;,,,,,;,;:ccccc:::::;;;;;;;;;;;,,,,,,,,''''''.......
+cllllllllloooollloooooooooclllcllccccc;:coodddddoooolllc:;;:::;ccllc:;;;;,'',;:::ccccllllclllllccc::;,,,,,,;;:cc:::::::::::;;;;;;;;,,,,,,,'''''.......
+lllllllllloooooooooooooooc;ccc:cccccc:::codddddddoolllccc:;',;::,,;ccc:;,';:ccccccc::::::::ccccccccc::;,,,,,,;::cc:::::::::;;;;;;;;;,,,,,,,'''''''....
+lllllooooooooooooddddddddl:;:c::ccccl:c:lodddoollcccc::::c::,''.'..;:;,'.,::::::::::::cccc::::::::::cc::;;;;;;;:c::::::::::::;;;;;;;;;,,,,,'''''''....
+lllllloooooooodddddddddddocc:c:cccccc:ccldooolcccc:ccccccclloolc;,''',,,::::::::;;;,;;;;:cccccc::::;;::c:::,,;;;::c:::::::::::::;;;;,,,,,,,,''''''....
+llloooooooooddddddddddddddlcc:ccclccc:lcolllc;;:cllollllloooolcc:cc:;::::::::;:::;;::;;;;;::cccc:::::::::::;',;;;:c:::::::::::::;;;;;,,,,,,,,''''''...
+ooooooooooodddddddddddddddoccccccclcc:c:cllccccllooooooooooc:cccccc:::ccccc::::::::cc::::::::::::;;;;:::::::;,,;;:cc::::::::::::;;;;;,,,,,,,,'''''''..
+ooooooooododdooododddddxxxxocc:cccllc:;:cllllloooooooooooolcllllc::::cccllcccc::;:cccccccccc:::cc:::;;;::::;;;,,,;ccccc::::::::;;:;;;;;,,,,,,,''''''..
+oooooooooddocc:::c:ccllodddooccclcllc:ccloooollllooooooollllllcccccc:cccccccc::::::ccccccccccccc:cccccc:::::;;;,',:ccccccc::::::::;;;;;,,,,,,,,''''''.
+ooooooooddooc;:ccc::;,,,;;:lllclllc:clcloolcccclooloooolllllcccccccccccccccccccccccccccccc::::ccc:cccccc:::;;;,'..;ccccccccc:::::;;;;;;;,,,,,,,''''''.
+ooooooddddooc::cccc:;,;;;;:::cllllllolllllllcllooooolccclocc:cllccclcccccllcllllllcccccclccccccccccccccc:::;;;;;,.'ccccccccc:::::;;;;;;,,,,,,,,'''''''
+oooodddddddol;,;;:::;:;;;;;:cc:;cllcclllllllloooollcclooollccllllllcccccllccclllclllccllcllllllcclccccccccc;;;;;;'.;cccccccc:::::;;;;;;;;,,,,,,,''''''
+ooddddddddddl:ccccccllcccccll::ccccccllollooooolcccllooollllllcccccc:cccclllllllcclllccclccllllllcccccccccc::;;;;,.,;:cccccc:::::;:;;;;;;,,,,,,,''''''
+oddoodddddddoooloolllllloolcclolooooooooooooooccccllloolollllccccllc:::cclllcclllccllcc:cllllllllcc::;;:::::::;;;;'';,;cccc:::::::;;;;;;;,,,,,,'''''''
+ooooooddddollllloollllllllllllllooooooooooool::clllllllolllllllclllcccccclclccclll:clllc;cllllccccc:::;:::::::;';;;,;;,;:::::::::::;;;;;;,,,,,,,,'''''
+ooooooodollllllllllllloolllcllooddddddoooollc:clll:cllooooocloloolcllllcllccccclllc:clccc:clcccc:::c:::;;:c::::,';;;;;;;;;:::::::::;;;;;;;,,,,,'',''''
+oooddoolccclllllllllllccloloddddxxdxddddolloollll:collooodocooooolcllolllllllc::llc;:ccllc;:ccccc:;;cc::;;:c:c:;',;;;;;;;;,;::::::;::;;;;;;,,,,',,,'''
+ddoollccllllllllcllol:loooddxxxxxxxxddooooooolllloooooooddlcoooooolllllllllclc::ccc;;ccclc:,;cccccc::lccc::cc::;;',,;;;;;;;;;;:::::::::;;;;,,,,,,,,'''
+dollccccccllclcclloc:loooodxxxxxxxdddoodddddoolcddddodddddloddooooooolllllllllc:cc::;ccllllc;:cccccc:clllccccc:;:;',,,;;;;;;;;:::::::::;;;;;,,,,,,,,''
+lllcccccccclllclllc:loooddddxxxxddddoodddxxxdoloddddddddxdldddoooddolllllolloll:cclc;:llooolc;:cccllccloolc:cc::;;,'',,;;;::;;,;::::::::;;;;;;;,,,,,''
+lccc::::::clllllc:cooododooddddddddooddxxxxxooodxxdddddxxdldddolldoollollloooll:;cll::ccllllll:ccccllcllllcc:::;;;;;,',;;;::::;,;:::::::;;;;;;,,,,,'''
+ccc::c::::clllloclooddodooooooolodoodxxxxxxoodxxxdxxdxdddoldooolooolloollloolllc;colc:ccllllolccllcccc:cllcccc::;,;,,,',;;::;::;,;:::::::;;;;;,,,,,,,,
+cc:::::::clllllclooooodooolololcoooddxxxxxdodddxxdxddddddoldoooooollooolllloollc:colc::clloooolclccccc::cllcccc:;,,,,,;,',::::::;,;:::::;;;;;,,,,,,,,,
+c:::::c:cllllolloooooooolllllc:clloddxdxxddddddxxddddddddolodooooooooooccllolllcclllccclloollllcccccccc::llccccc:;;,,,;;,'';:::::;;:::::;;;;;;;,,,,,,,
+::::::;cllccoolloolllllccllcccllllodddddodddddxxxxxdxddddolodooooooooll:clloolccclllclclllllllllccclllcl:ccccc:cc:;;;'',,;,,',;:::,;::::;;;;;;;;;;,,,,
+;::::;:cclllollllccclccccllc:clllodddddoddooddddxxdddddddollooocloollll:clooolccllclclccllllllllccllllcc::cccc::::;;:;,',,,,,'',,;,,;:::;;;;;;;;;;,,,,
+::::;ccccclolcllc:cccclclccccllllodxddddxdcldddoddoodddddollool:llllllc;cllooccc:cccclllllolllllccclllccc:ccccc::::;;::;',,,,,,,'''',,;:;;;;;;;,,,,''.
+::;;;::cccllcclccccccclllccclllloodddooddocllooooooodooddlccolc:clllllc;cccllcc:;:c::lccllllccccc:clllcclcccccc::;:;,;::;;,,'',,,'''''',,,,,,,,,''''..
+:::;:::ccllccllcccclllcllccllllllooooodddocllooooooooooooc:cclc:ccclllc,::cclcc:;c:;:cccccccc::::::ccc:cc::::::::;;;,,;;;;;;,'''''''',,,,,;;;,,,''''''
+cc::::cclolccollllclolllccllcllllooooodoooclloooooolllllc:ccccc:ccclcc:,;:ccccc:;cc;cccccc::::::::::cc:::;::;:::::;;,',;;;;;;;;,''''.',,,,,,,,,,,,,,,,
+:cc;:cccllcclolllllllclllclclooloooooooool:cllllllllllccccclccc:ccccc:c,::cclcc:;::;:ccccc:::;:::::ccc::::::::::::;;;,';;;;;;;;;;,''.',,,,,,,,;;;;;;,,
+cl:;cclclc:clllllllllllllllloooooloolooooc:cllllllllllllcccllc::;::cc:c,;ccclcc:;::;:ccccc::::::::cc::;::::c::::::;:;,',;,,,;;;;;,,,''',,,,,',;;;;;;,,
+ll::clccccccllllllccllllclllllooolooloool::clllllllllllcclllllc:,;:::cc;;:ccc;c:;::::ccccc:::::::::::;;;;;::c::::::::,,;;,,,;;;,,;;,,,,''..',;;;;;;,,,
+ol:;:c::cccccllllccllcccclllllllloooooool::cllllllolllc:clllllc:;,;:::::::cc::c::::c:ccc:::::::cc;::;;::;;;:::c:::::::,;,;,,;;;;;;;;;;,''.',;;;;;;;,,'
+ol:;:cccccl::cllllllccc:cclllllclooodoool::clllllllllc:ccccccc:;,,;:::::;::::ccc::cc:cc:ccccccccc;:c:::;:::ccc::::::::;;;;;;;;;;;;;;;;;;,,'',,,;;;,,,'
+ooc::cccclo::cloolllccccllollllldoooooollc:llllllllll:;;,,;;;,,,''.'',,,,;;::ccc:ccc:ccccccccccc;;cc::::ccc:::::::::::;;::;;;;;;,;;,,,;;;,,,,,,,,,,,,,
+olc:::ccllo::lloolllcllclllllolodooooooloccllooollllc::cllllc;ccc:;,,,'....',:ccccc:ccc:ccccc:;'',,,,,,;;,,'..';::c:::;;::::;,;;,,;;,,,'''',,'''''',,,
+oocc:::cccoc;clooolllcclllllollooloololllcloooooolcccllllc:;'';:;,.,ccc:;,,,,:cccc::::::ccc::::;,,,,,,,;;;;;;,,;::::::;;::::;;,;,,,;,,''''''.'''''.'',
+ooc::cc:ccll;cloolllllcllllooloooollooooolloooooocccllc:,..........,;cc::::lcllccc:;:;:::c::::cc:cc::lcllll:,'',;;::;:;;:::::;,,;,',,,''''''..'''''.''
+ooo::::cclll:cllloolllcllllolloooollloooolloodlllclc:,'..';;;;;;,'....'':c::lclllc::::ccc:::::cl:ccccc::;;'...';;;::;;;;:::::;,,;,',,,,'',,'''''''''''
+dddl::cccllocclllooloollllooclooooolooddooooooll:;,'',;::lllc::::::l:...',,,:llllc:ccccc:::::clc::;,'.......',,,,,,;;;;;:::::;,;,;,',,,,'',,,'''''''''
+dddol:cllllllllollcloooollolcooodollodddddoool:;,:cclc::clll:;;;:c:loc,...:c:clllccccllc:cc:cll:'',;;,;,,;;'.....,:;;;;;;::::;;;;,,',,,,,'',,,''''''''
+dddddollllollollolllloooooooloddddllodddddddol:;clocclc::::lllc::::ool:,'.;ll::ccccclllcccc:cl:,;:c:;;;;;;c;..':;:::;,,;,;;;;;;;;;,,,,,,,'',,,,'....''
+oddddddololclc:coollllloooooodddddllodddxxdllddlc::llcc:::cc::::clcol:lc;,:cll::ccllll::cc:cl:;cc;:cc::;;;:,..':;c:;,,,,;;;;;;;;;;,,,,,,,'',,,,,'...''
+dddddxxdxxddlclllllcllllooolldddddlloddddddocoddol:;:ccclooollc:ccc::cllc;:lllc::cllc:;:cccll;::,.',;;;;:::'.';;::;;,,::,,;;;,;;,;,,;,,,,''',,,,'..'''
+ddddddddxxddoodooocclollololldddddoloddddddlclodddolcc::clllc:;,;;:llllllllllc::cll:;:cc:cllc;;;:;:::::;;:,',:::c::;,,:::;,;;,,;,;,,;,,,'''''',,,.'',,
+odddddddddolodooooc:loooolllcddddoollddddddclloldddoolccccc:::::ccclllllllollc:ccc::cccc:,cllc:;;;:::;;''',;:;:c:;:;,;:;::;;,,,,;;,,,,','''''',,''''',
+lodddddddlloooollolcloooolcc:ooooollcloddddllloollloollcccc:cccccllllllllolccc:;:clccclllc:clllc::;,,'',,,;;;:cc;;,',::;;;;;;,,,;,,;,''''',''',,''''''
+llooddddlcllllllllllclolllc::cllllll:loolooloolllc:::cccclloooooooooooooolc:cc;:cool:::cc:c::llcc::::;;;;;;;::c:,,'';:;;::;,;;,,,,;,,''''',,'',,,''',,
+:ccclolccccllllllllcl:cccc:::;cllllo:cllllooodoolc;:;,;:cllooooddooddoooollllclooooolc;:;:llllllcccccc:::c::cc:,.,,;:;;;;;,;;;,,,;;,,,,,,,,,,'',,,,,,,
+ooolcccccccllcllcc::cc:lll:cl::lloooccllollllolcllcc::cc:loooddddddddddddooooooooolllllcccclooollllccccccc:;;,,,,,,;;,;;;,,;;,,,,;,,,,,'',,,,',,,,,,,,
+lolccccclccccc:c:::;clcclclclc;clllolclllllc:ll:llll::clclooddddddoddddddooooooooooollcc:cccllooollcc:;;;,'',,,;;,,,,,,,;,,;,',,,;,,',;'.,,,,'',,,,,,,
+cccccclclllccc::c::;clllcccc:c::llllc::lllllccolclll:;lcclooooooooooddooddooooooooooollc::cclcllllllccc:;;;;::::;;,,,,,;,,;,,,,,;,;,',;,.'',,,',,,,,,,
+ccccllloooocccccccc::oolccc::clccccccc:llllll:ooolclc;:clooooooooooodoooodooooooooooolccclllllllllllllcccc:c:;;:;;,,,,;,,;,,,,;;,;,,;;;;'.'',,,,,,,,,'
+llloooodoooollllllllcoddoc:;;cllc::ccc:clclllccloolllc:looooooooooooooooooooooooooooooolloolloollllllllllcc:;;;;;;,,,;;,,;;;,;;,,;,;;;;;,.'',,,,,,,,,'
+lloooooooooddllllooolodddo:;,::c:::::c::ccllolclllllllccooooooooddooooooooooooooooooodooooooooollllllllcl:;;;;,,;,,,;;;,,;;;;;;;;,;;;;;;,.'''',,,,,,,'
+lloooooooodddolloooooldxddl:';:cc;:::cc;ccllol::lllllllloddoodoooooooooooooooooddoooodoooddoooolllllllll:;:;;;,;;,,,;;,,;;;;;;;,,;;::;;;,..''',,,,,,''
+llllooooodoodddooooolcldddl:,;;::c;::cc::clclolc:clooooooooodoooooodddooooodoodddooooooooooollllllllllc:;::;;;;;,;;,;,,,;,,;;,',;:::;;;;;...',,,,,,,''
+llloooooodddddddolloolcoddl;;,,;:c::cllc:clllooll:clloooooodddooooooooooooodoooolllooooooolllllllllllc;,;;;;;;;;;;,,;,',,,,,,';::::::;;;,'..,,,,,,,,''
+lloooooooodddddddddooolcodl;,',:::::clllllcolloollllclloooooodddooooooooooooool:cclllooollllllllllllc;,,;;;;;;;,,,,;;,',;;;;;;:::::::::;,..,,,,,,,,'''
+loooooooodddddddxxxddoollol:;,;::::cllloolccoloolclooolcllooooooooooooooooooooooooooollloooollllc::;;;,;;,,;;;;;,,,;,;,,,;;::::::::::;;,..,;,,,,,,,'''
+looooooddddddddddddxdddolllc;,;:;:clcclclooloollol:clllllc::cooooooooooooooooooooooolooooolllllc:cc::;;:;;;;,;;;;;;,;;;,'';cc:::::::;;;,,,;;;;,,,,''''
+ooooooooooddddddddddddddoolc;,,,,:ccclolc:clllclllc:cllccccc::::clooooodddooooooooollllllccc::lllcc:;:::::::;:;;;;;,;;:;,'',:::::::::;;;;;;,,,,,,,,,''
+looooooooodddddddddddddddoolc;;,;c:;cloodocclllcclclc:cccccccc::;::cloodddoooooooolllllc:;:::looc:;;::::::c:;;:;;,;,;;::;,'.';;;;;:;;;;;;;;,,,,,,,,'''
+llloooooooddddddddddddddddoc:;;:::;:lllodddoloolclcccccccccccc:ccc::cclooooooooooolccc::ccccclol::::::::cc:;;:;;:;,,;;:::::;,,,;;:::;;;;;;,,,,,,,,,'''
+llooooooodddddddddddddddddolllc:::coolooooccodddolccccccclccccccccccccccclllcclcc:::cc:::cccccc;;::::ccccc;,;;;:::,,;;c:c:::::::::;;;;;;;,,,,,,,,,''''
+lloooooodddddddddddddddddddddollooddolllcclooooooolccccc;:llllccccccccllc:::ccclc::cc:;;;:llc:;;:::ccclcc;,;;::cc:;;;:cc:::::::::;;;;;;;,,,,,,,,,,''''
+lloooooodddddddddddddddddoddddooooolc:::cclooooooooolcccc:;cllllccccccccc::clolc;:cc;;;:cllc:;;;:cccclcc;,::ccccc:;;,:c:::::::::::;;;;;,,,,,,,,,,'''''
+lloooooooooooddddddddddoooooooolc:,'.'clllooooooooddollcc:::;cllllc:::::,,:llccccc:::ccclc:;;:;:cllllc:;;:ccccccc:;,;cccc:::::::::;;;;,,,,,,,,,,,'''''
+llcccccccccccllllllllllllllllcclcc'.;';ooooooooooooddooolc:::;;ccllc:;;,....,c:::;:::::::;,,;::cllllccccccccccccc:;;:c:cc::::::::;;;;;,,,,,,,,,'''''''
+cc:;;;;;;;;;;;;:::::ccclllooolcoooc.,;;oooooooddddddddddoooolcc:::clc:;::.,',c,;ccccc::;;::::::cccllccccccccccccc;::ccc::::::::::;;;;;;,,,,,,,,'''''''
+::;;;,,,,,;;,,;;;::::::cllooloccooo,,,;oooooooddddddoddddoooooollcccc::c:.',;c,;cc;;::;;;::;::::ccccccccccccccccc::ccc::::::::::;;;;;;,,,,,,,,,'''''''
+        </pre>
+        <pre class="footer-text">
+            [agony@larpMachine ~]$
+            ----------------------
+            OS: Arch by the way
+            Host: Agony
+            Kernel: hooman heart
+            Uptime: 18 years
+            Packages: CS 2nd semester
+            Resolution: -3.00 Diopters
+            CPU: dumbass hooman brain
+            GPU: genius hooman brain
+            Memory: unlimited
+        </pre>
+    </div>
+</footer>
+</div>
+</body>
+</html>
